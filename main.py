@@ -1,3 +1,6 @@
+from category import Category, close_connection as close_category_conn
+from destination import Destination, close_connection as close_destination_conn, cursor
+
 def explore_destinations():
     # Select query for available destinations
     print("Exploring available destinations...")
@@ -69,3 +72,5 @@ def main_menu():
 
 if __name__ == '__main__':
     main_menu()
+    close_category_conn()
+    close_destination_conn()
