@@ -15,10 +15,11 @@ cursor.execute('''
 CREATE TABLE IF NOT EXISTS Destination (
     id INT AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(255) UNIQUE,
-    historical_background TEXT,
+    background TEXT,
     operating_hours VARCHAR(100),
     exciting_facts TEXT,
-    location VARCHAR(255),
+    latitude VARCHAR(255),
+    longitude VARCHAR(255),
     rating FLOAT,
     key_nearby_places TEXT,
     category_id INT,
@@ -28,12 +29,13 @@ CREATE TABLE IF NOT EXISTS Destination (
 conn.commit()
 
 class Destination:
-    def __init__(self, name, historical_background, operating_hours, exciting_facts, location, rating, key_nearby_places, category_id):
+    def __init__(self, name, background, operating_hours, exciting_facts, latitude, longitude, rating, key_nearby_places, category_id):
         self.name = name
-        self.historical_background = historical_background
+        self.background = background
         self.operating_hours = operating_hours
         self.exciting_facts = exciting_facts
-        self.location = location
+        self.latitude = latitude
+        self.longitude = longitude
         self.rating = rating
         self.key_nearby_places = key_nearby_places
         self.category_id = category_id
@@ -47,9 +49,9 @@ class Destination:
         else:
             cursor.execute('''
             INSERT INTO Destination 
-            (name, historical_background, operating_hours, exciting_facts, location, rating, key_nearby_places, category_id)
-            VALUES (%s, %s, %s, %s, %s, %s, %s)
-            ''', (self.name, self.historical_background, self.operating_hours, self.exciting_facts, self.location,
+            (name, background, operating_hours, exciting_facts, latitude, longitude, rating, key_nearby_places, category_id)
+            VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s)
+            ''', (self.name, self.background, self.operating_hours, self.exciting_facts, self.latitude, self.longitude,
                 self.rating, self.key_nearby_places, self.category_id))
             conn.commit()
             print("Destination added successfully.")
