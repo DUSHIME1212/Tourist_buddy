@@ -56,6 +56,31 @@ class Destination:
             conn.commit()
             print("Destination added successfully.")
 
+    def search_by_category(category_id):
+        cursor.execute('SELECT * FROM Destination WHERE category_id = %s', (category_id,))
+        destinations = cursor.fetchall()
+        if destinations:
+            return destinations
+        else:
+            return "No Destination Found"
+    
+
+    def search_by_query(query):
+        search_query = f"%{query}%"
+        cursor.execute('''
+            SELECT * FROM Destination 
+            WHERE name LIKE %s 
+            OR background LIKE %s 
+            OR operating_hours LIKE %s 
+            OR exciting_facts LIKE %s 
+            OR key_nearby_places LIKE %s
+        ''', (search_query, search_query, search_query, search_query, search_query))
+        destinations = cursor.fetchall()
+        if destinations:
+            return destinations
+        else:
+            return None
+    
 # Close the connection when done
 def close_connection():
     conn.close()
