@@ -72,6 +72,10 @@ def calculate_distance():
     # Select query for calculating distance from current location
     print("Calculating distance from current location...")
 
+def currency_conversion():
+    # Select query for currency conversion
+    print("Converting currency...")
+
 def main_menu():
     while True:
         print("\n--- WELCOME TO TOURIST BUDDY ---")
@@ -84,8 +88,9 @@ def main_menu():
         print("7. Get Available Categories")
         print("8. Get Recommended Places")
         print("9. Distance From Current Location")
-        print("10. Find Arrival Time")
-        print("11. Exit")
+        print("10. Currency Conversion")
+        print("11. Find Arrival Time")
+        print("12. Exit")
 
         choice = input("Enter your choice: ")
 
@@ -108,8 +113,10 @@ def main_menu():
         elif choice == '9':
             calculate_distance()
         elif choice == '10':
-            arrival_time()
+            currency_conversion()
         elif choice == '11':
+            arrival_time()
+        elif choice == '12':
             print("Exiting program. Goodbye!")
             break
         else:
