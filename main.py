@@ -1,5 +1,5 @@
-from category import Category, close_connection as close_category_conn
-from destination import Destination, close_connection as close_destination_conn, cursor
+from category import Category, close_connection as close_category_conn, add_category, get_categories
+from destination import Destination, close_connection as close_destination_conn, cursor, add_destination
 from viewdestinations import explore_destinations
 
 
