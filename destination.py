@@ -56,6 +56,22 @@ class Destination:
             conn.commit()
             print("Destination added successfully.")
 
+    def add_destination():
+        name = input("Enter destination name: ")
+        background = input("Enter description/background: ")
+        operating_hours = input("Enter operating hours: ")
+        exciting_facts = input("Enter exciting facts: ")
+        location = input("Enter destination coordinates (latitude, longitude):")
+        key_nearby_places = input("Enter key nearby places (hotel, restaurants, hospitals): ")
+        category_id = int(input("Enter category ID: "))
+        # separate latitude and longitude
+        location = location.split(',')
+        latitude = location[0].strip()
+        longitude = location[1].strip()
+
+        new_destination = Destination(name, background, operating_hours, exciting_facts, latitude, longitude, 0, key_nearby_places, category_id)
+        new_destination.save_to_db()
+        
     def search_by_category(category_id):
         cursor.execute('SELECT * FROM Destination WHERE category_id = %s', (category_id,))
         destinations = cursor.fetchall()
