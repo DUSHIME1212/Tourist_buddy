@@ -4,9 +4,8 @@ import mysql.connector
 conn = mysql.connector.connect(
     host='localhost',
     user='root',
-    password='',
-    database='destinations_db',
-    auth_plugin='mysql_native_password'
+    password='12345678',
+    database='destination_db',
 )
 cursor = conn.cursor()
 
@@ -81,30 +80,39 @@ def add_destination():
     new_destination = Destination(name, background, operating_hours, exciting_facts, latitude, longitude, 0, key_nearby_places, category_id)
     new_destination.save_to_db()
 
-    def search_by_category(category_id):
-        cursor.execute('SELECT * FROM Destination WHERE category_id = %s', (category_id,))
-        destinations = cursor.fetchall()
-        if destinations:
-            return destinations
-        else:
-            return "No Destination Found"
+def search_by_category():
+    category_name = input("Enter category name to filter destinations: ")
+    cursor.execute('''
+    SELECT Destination.*
+    FROM Destination JOIN Category
+    ON Destination.category_id = Category.id
+    WHERE Category.name = ?
+    ''', (category_name,))
+    results = cursor.fetchall()
+    if results:
+        print(f"Destinations in Category '{category_name}':")
+        for dest in results:
+            print(dest)
+    else:
+        print(f"No destinations found in Category '{category_name}'.")
     
 
-    def search_by_query(query):
-        search_query = f"%{query}%"
-        cursor.execute('''
-            SELECT * FROM Destination 
-            WHERE name LIKE %s 
-            OR background LIKE %s 
-            OR operating_hours LIKE %s 
-            OR exciting_facts LIKE %s 
-            OR key_nearby_places LIKE %s
-        ''', (search_query, search_query, search_query, search_query, search_query))
-        destinations = cursor.fetchall()
-        if destinations:
-            return destinations
-        else:
-            return None
+def search_by_query():
+    query  = input("Search anything relating to your destination: ")
+    search_query = f"%{query}%"
+    cursor.execute('''
+        SELECT * FROM Destination 
+        WHERE name LIKE %s 
+        OR background LIKE %s 
+        OR operating_hours LIKE %s 
+        OR exciting_facts LIKE %s 
+        OR key_nearby_places LIKE %s
+    ''', (search_query, search_query, search_query, search_query, search_query))
+    destinations = cursor.fetchall()
+    if destinations:
+        print(destinations)
+    else:
+        return "Result not found"
     
 # Close the connection when done
 def close_connection():
