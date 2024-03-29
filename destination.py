@@ -145,3 +145,4 @@ def highly_recommended():
     # Fetch all the rows
     result = cursor.fetchall()
     # Print the result
+    for row in result:
