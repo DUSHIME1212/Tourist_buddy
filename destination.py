@@ -149,3 +149,5 @@ def highly_recommended():
     # Print the result
     for row in result:
         print(row)
+
+        
