@@ -1,4 +1,4 @@
-import mysql.connector
+iimport mysql.connector
 
 # Connect to MySQL database
 conn = mysql.connector.connect(
@@ -85,18 +85,26 @@ class Destination:
 def close_connection():
     conn.close()
 
-# Destination information dictionary
-destinations = {}
+# Currency converter and destination information
+destinations = {
+    "Nairobi": {
+        "country": "Kenya",
+        "currency": "KSH"
+    }
+}
 
 def update_destination(destination, country, currency):
     destinations[destination] = {"country": country, "currency": currency}
     print(f"Destination information updated for {destination}")
 
-def convert_currency(amount, from_currency, to_currency, conversion_rates):
+def convert_currency(amount, from_currency, to_currency):
+    conversion_rates = {
+        ("KSH", "USD"): 0.069,
+        ("USD", "EUR"): 132.69
+    }
     if (from_currency, to_currency) in conversion_rates:
         rate = conversion_rates[(from_currency, to_currency)]
         converted_amount = amount * rate
         return converted_amount
     else:
         return None
-
