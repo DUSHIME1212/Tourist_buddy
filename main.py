@@ -28,13 +28,19 @@ def add_destination():
     new_destination = Destination(name, background, operating_hours, exciting_facts, latitude, longitude, 0, key_nearby_places, category_id)
     new_destination.save_to_db()
 
-def add_category():
-    # Insert query for adding new category
-    print("Adding new category...")
-
+    
 def get_categories():
-    # Select query for getting available categories
-    print("Getting available categories...")
+    cursor.execute('SELECT COUNT(*) FROM Category')
+    num_categories = cursor.fetchone()[0]
+
+    if num_categories == 0:
+        print("There are no categories available. Please consider adding some.")
+    else:
+        cursor.execute('SELECT * FROM Category')
+        categories = cursor.fetchall()
+        print("Available Categories:")
+        for cat in categories:
+            print(cat)
 
 def get_recommended_places():
     # Select query for getting recommended places
