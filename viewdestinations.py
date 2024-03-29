@@ -26,8 +26,13 @@ def explore_destinations():
         for destination in destinations:
             print('Destination Id:', destination[0])
             print('Name:', destination[1])
-            print('Location:', destination[2])
-            print('Description:', destination[3])
+            print('Description:', destination[2])
+            print('Operating Hours:', destination[3])
+            print('Exciting Facts:', destination[4])
+            print('Location (lat, lon): (', destination[5], ',', destination[6], ')')
+            print('Rating:', destination[7])
+            print('Key Nearby Places:', destination[8])
+            print('Category Id:', destination[9])
             print('------------------------------')
 
     #close the cursor and the connection

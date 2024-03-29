@@ -65,6 +65,25 @@ class Destination:
         conn.commit()
         print("Destination updated successfully.")
 
+def rate_destination():
+    name = input("Enter destination name: ")
+    rating = float(input("Enter rating (0-5): "))
+    if rating < 0 or rating > 5:
+        print("Rating must be between 0 and 5.")
+        return
+    cursor.execute('SELECT id FROM Destination WHERE name = %s', (name,))
+    existing_destination = cursor.fetchone()
+    if not existing_destination:
+        print("Destination does not exist in the database.")
+    else:
+        cursor.execute('''
+        UPDATE Destination
+        SET rating = %s
+        WHERE name = %s
+        ''', (rating, name))
+        conn.commit()
+        print("Destination rated successfully. Thank you for your feedback!")
+
 def add_destination():
     name = input("Enter destination name: ")
     background = input("Enter description/background: ")
@@ -87,7 +106,7 @@ def search_by_category():
     SELECT Destination.*
     FROM Destination JOIN Category
     ON Destination.category_id = Category.id
-    WHERE Category.name = ?
+    WHERE Category.name = %s
     ''', (category_name,))
     results = cursor.fetchall()
     if results:
@@ -141,7 +160,7 @@ def update_destination():
 
 def highly_recommended():
     # Execute the SQL query
-    query = "SELECT * FROM destinations WHERE rating = (SELECT MAX(rating) FROM destinations)"
+    query = "SELECT * FROM Destination WHERE rating = (SELECT MAX(rating) FROM Destination)"
     cursor.execute(query)
     
     # Fetch all the rows
