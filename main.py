@@ -1,12 +1,7 @@
 from category import Category, close_connection as close_category_conn, add_category, get_categories
-from destination import Destination, close_connection as close_destination_conn, cursor, add_destination, update_destination,search_destination,search_by_category,search_by_query
+from destination import Destination, close_connection as close_destination_conn, cursor, add_destination, update_destination,search_by_category,search_by_query
 from viewdestinations import explore_destinations
 
-
-
-def search_destination():
-    # Select query for searching destination by name
-    print("Searching destination...")
 
 def filter_by_category():
     # Select query for filtering destination by category
@@ -97,7 +92,7 @@ def main_menu():
         if choice == '1':
             explore_destinations()
         elif choice == '2':
-            search_destination()
+            search_by_query()
         elif choice == '3':
             filter_by_category()
         elif choice == '4':
