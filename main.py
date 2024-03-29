@@ -1,6 +1,7 @@
 from category import Category, close_connection as close_category_conn
 from destination import Destination, close_connection as close_destination_conn, cursor
 
+
 def explore_destinations():
     # Select query for available destinations
     print("Exploring available destinations...")
