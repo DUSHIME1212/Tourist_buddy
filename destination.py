@@ -137,13 +137,7 @@ def update_destination():
     new_destination = Destination(name, background, operating_hours, exciting_facts, latitude, longitude, 0, key_nearby_places, category_id)
     new_destination.update_destination_info()
 
-def convert_currency(amount, from_currency, to_currency, conversion_rates):
-    if (from_currency, to_currency) in conversion_rates:
-        rate = conversion_rates[(from_currency, to_currency)]
-        converted_amount = amount * rate
-        return converted_amount
-    else:
-        return None
+
 
 
 
