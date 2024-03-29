@@ -137,9 +137,10 @@ def update_destination():
     new_destination = Destination(name, background, operating_hours, exciting_facts, latitude, longitude, 0, key_nearby_places, category_id)
     new_destination.update_destination_info()
 
-# Execute the SQL query
+
 def highly_recommended():
+    # Execute the SQL query
     query = "SELECT * FROM destinations WHERE rating = (SELECT MAX(rating) FROM destinations)"
     cursor.execute(query)
-
+    # Fetch all the rows
 
