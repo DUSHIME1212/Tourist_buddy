@@ -104,9 +104,21 @@ def close_connection():
 # Destination information dictionary
 destinations = {}
 
-def update_destination(destination, country, currency):
-    destinations[destination] = {"country": country, "currency": currency}
-    print(f"Destination information updated for {destination}")
+def update_destination():
+    name = input("Enter destination name: ")
+    background = input("Enter description/background: ")
+    operating_hours = input("Enter operating hours: ")
+    exciting_facts = input("Enter exciting facts: ")
+    location = input("Enter destination coordinates (latitude, longitude):")
+    key_nearby_places = input("Enter key nearby places (hotel, restaurants, hospitals): ")
+    category_id = int(input("Enter category ID: "))
+    # separate latitude and longitude
+    location = location.split(',')
+    latitude = location[0].strip()
+    longitude = location[1].strip()
+
+    new_destination = Destination(name, background, operating_hours, exciting_facts, latitude, longitude, 0, key_nearby_places, category_id)
+    new_destination.save_to_db()
 
 def convert_currency(amount, from_currency, to_currency, conversion_rates):
     if (from_currency, to_currency) in conversion_rates:
