@@ -81,13 +81,20 @@ def add_destination():
     new_destination.save_to_db()
 
 def search_by_category():
-    category_id = input("what are your pre")
-    cursor.execute('SELECT * FROM Destination WHERE category_id = %s', (category_id,))
-    destinations = cursor.fetchall()
-    if destinations:
-        return destinations
+    category_name = input("Enter category name to filter destinations: ")
+    cursor.execute('''
+    SELECT Destination.*
+    FROM Destination JOIN Category
+    ON Destination.category_id = Category.id
+    WHERE Category.name = ?
+    ''', (category_name,))
+    results = cursor.fetchall()
+    if results:
+        print(f"Destinations in Category '{category_name}':")
+        for dest in results:
+            print(dest)
     else:
-        return "No Destination Found"
+        print(f"No destinations found in Category '{category_name}'.")
     
 
 def search_by_query():
