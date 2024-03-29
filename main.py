@@ -1,5 +1,5 @@
 from category import Category, close_connection as close_category_conn, add_category, get_categories
-from destination import Destination, close_connection as close_destination_conn, cursor, add_destination
+from destination import Destination, close_connection as close_destination_conn, cursor, add_destination, update_destination
 from viewdestinations import explore_destinations
 from main import destination
 
@@ -80,12 +80,13 @@ def main_menu():
         print("2. Search Destination Name")
         print("3. Filter Destination By Category")
         print("4. Add New Attractions")
-        print("5. Add New Category")
-        print("6. Get Available Categories")
-        print("7. Get Recommended Places")
-        print("8. Distance From Current Location")
-        print("9. Find Arrival Time")
-        print("10. Exit")
+        print("5. Edit existing attraction")
+        print("6. Add New Category")
+        print("7. Get Available Categories")
+        print("8. Get Recommended Places")
+        print("9. Distance From Current Location")
+        print("10. Find Arrival Time")
+        print("11. Exit")
 
         choice = input("Enter your choice: ")
 
@@ -98,16 +99,18 @@ def main_menu():
         elif choice == '4':
             add_destination()
         elif choice == '5':
-            add_category()
+            update_destination()
         elif choice == '6':
-            get_categories()
+            add_category()
         elif choice == '7':
-            get_recommended_places()
+            get_categories()
         elif choice == '8':
-            calculate_distance()
+            get_recommended_places()
         elif choice == '9':
-            arrival_time()
+            calculate_distance()
         elif choice == '10':
+            arrival_time()
+        elif choice == '11':
             print("Exiting program. Goodbye!")
             break
         else:
