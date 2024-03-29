@@ -1,5 +1,5 @@
-from category import Category, close_connection as close_category_conn
-from destination import Destination, close_connection as close_destination_conn, cursor
+from category import Category, close_connection as close_category_conn, add_category, get_categories
+from destination import Destination, close_connection as close_destination_conn, cursor, add_destination
 from viewdestinations import explore_destinations
 
 
@@ -11,41 +11,6 @@ def filter_by_category():
     # Select query for filtering destination by category
     print("Filtering destination by category...")
 
-def add_destination():
-    name = input("Enter destination name: ")
-    background = input("Enter description/background: ")
-    operating_hours = input("Enter operating hours: ")
-    exciting_facts = input("Enter exciting facts: ")
-    location = input("Enter destination coordinates (latitude, longitude):")
-    key_nearby_places = input("Enter key nearby places (hotel, restaurants, hospitals): ")
-    category_id = int(input("Enter category ID: "))
-
-    # separate latitude and longitude
-    location = location.split(',')
-    latitude = location[0].strip()
-    longitude = location[1].strip()
-
-    new_destination = Destination(name, background, operating_hours, exciting_facts, latitude, longitude, 0, key_nearby_places, category_id)
-    new_destination.save_to_db()
-
-    
-def add_category():
-    name = input("Enter category name: ")
-    new_category = Category(name)
-    new_category.save_to_db()
-
-def get_categories():
-    cursor.execute('SELECT COUNT(*) FROM Category')
-    num_categories = cursor.fetchone()[0]
-
-    if num_categories == 0:
-        print("There are no categories available. Please consider adding some.")
-    else:
-        cursor.execute('SELECT * FROM Category')
-        categories = cursor.fetchall()
-        print("Available Categories:")
-        for cat in categories:
-            print(cat)
 
 def get_recommended_places():
     # Select query for getting recommended places
