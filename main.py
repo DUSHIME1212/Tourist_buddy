@@ -1,5 +1,5 @@
 from category import Category, close_connection as close_category_conn, add_category, get_categories
-from destination import Destination, close_connection as close_destination_conn, cursor, add_destination, update_destination,search_by_category, search_by_query, convert_currency
+from destination import Destination, close_connection as close_destination_conn, cursor, add_destination, update_destination,search_by_category, search_by_query
 from viewdestinations import explore_destinations
 
 def get_recommended_places():
@@ -62,8 +62,34 @@ def calculate_distance():
     print("Calculating distance from current location...")
 
 def currency_conversion():
-    # Select query for currency conversion
-    print("Converting currency...")
+    conversion_rates = {
+        ('USD', 'EUR'): 0.89,
+        ('EUR', 'USD'): 1.12,
+        ('RWF', 'USD'): 0.00099,
+        ('USD', 'KES'): 111,
+        ('USD', 'UGX'): 4071,
+        ('KES', 'USD'): 0.009,
+        ('UGX', 'USD'): 0.00025,
+        ('USD', 'RWF'): 1015
+    }
+
+    amount_to_convert = float(input("Enter the amount to convert: "))
+    from_currency = input("Enter the current currency (e.g., USD, EUR, RWF, KES, UGX): ").upper()
+    to_currency = input("Enter the desired currency (e.g., USD, EUR, RWF, KES, UGX): ").upper()
+
+    converted_amount = convert_currency(amount_to_convert, from_currency, to_currency, conversion_rates)
+    if converted_amount is not None:
+        print(f"{amount_to_convert} {from_currency} is equal to {converted_amount} {to_currency}")
+    else:
+        print("Conversion rate not available.")
+
+def convert_currency(amount, from_currency, to_currency, conversion_rates):
+    if (from_currency, to_currency) in conversion_rates:
+        rate = conversion_rates[(from_currency, to_currency)]
+        converted_amount = amount * rate
+        return converted_amount
+    else:
+        return None
 
 def main_menu():
     while True:
@@ -116,32 +142,4 @@ if __name__ == '__main__':
     close_category_conn()
     close_destination_conn()
 
-def currency_conversion():
-    conversion_rates = {
-        ('USD', 'EUR'): 0.89,
-        ('EUR', 'USD'): 1.12,
-        ('RWF', 'USD'): 0.00099,
-        ('USD', 'KES'): 111,
-        ('USD', 'UGX'): 4071,
-        ('KES', 'USD'): 0.009,
-        ('UGX', 'USD'): 0.00025,
-        ('USD', 'RWF'): 1015
-    }
 
-    amount_to_convert = float(input("Enter the amount to convert: "))
-    from_currency = input("Enter the current currency (e.g., USD, EUR, RWF, KES, UGX): ").upper()
-    to_currency = input("Enter the desired currency (e.g., USD, EUR, RWF, KES, UGX): ").upper()
-
-    converted_amount = convert_currency(amount_to_convert, from_currency, to_currency, conversion_rates)
-    if converted_amount is not None:
-        print(f"{amount_to_convert} {from_currency} is equal to {converted_amount} {to_currency}")
-    else:
-        print("Conversion rate not available.")
-
-def convert_currency(amount, from_currency, to_currency, conversion_rates):
-    if (from_currency, to_currency) in conversion_rates:
-        rate = conversion_rates[(from_currency, to_currency)]
-        converted_amount = amount * rate
-        return converted_amount
-    else:
-        return None
