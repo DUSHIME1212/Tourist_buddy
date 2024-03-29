@@ -144,4 +144,4 @@ def highly_recommended():
     cursor.execute(query)
     # Fetch all the rows
     result = cursor.fetchall()
-
+    # Print the result
