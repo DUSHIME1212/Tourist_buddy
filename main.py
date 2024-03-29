@@ -12,8 +12,6 @@ def filter_by_category():
     print("Filtering destination by category...")
 
 
-
-
 def get_recommended_places():
     # Select query for getting recommended places
     print("Getting recommended places...")

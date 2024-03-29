@@ -72,24 +72,6 @@ class Destination:
         new_destination = Destination(name, background, operating_hours, exciting_facts, latitude, longitude, 0, key_nearby_places, category_id)
         new_destination.save_to_db()
 
-    def add_category():
-        name = input("Enter category name: ")
-        new_category = Category(name)
-        new_category.save_to_db()
-   
-    def get_categories():
-        cursor.execute('SELECT COUNT(*) FROM Category')
-        num_categories = cursor.fetchone()[0]
-
-        if num_categories == 0:
-            print("There are no categories available. Please consider adding some.")
-        else:
-            cursor.execute('SELECT * FROM Category')
-            categories = cursor.fetchall()
-            print("Available Categories:")
-            for cat in categories:
-                print(cat)
-                
     def search_by_category(category_id):
         cursor.execute('SELECT * FROM Destination WHERE category_id = %s', (category_id,))
         destinations = cursor.fetchall()
