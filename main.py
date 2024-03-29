@@ -29,6 +29,11 @@ def add_destination():
     new_destination.save_to_db()
 
     
+def add_category():
+    name = input("Enter category name: ")
+    new_category = Category(name)
+    new_category.save_to_db()
+
 def get_categories():
     cursor.execute('SELECT COUNT(*) FROM Category')
     num_categories = cursor.fetchone()[0]
