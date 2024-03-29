@@ -4,9 +4,8 @@ import mysql.connector
 conn = mysql.connector.connect(
     host='localhost',
     user='root',
-    password='',
-    database='destinations_db',
-    auth_plugin='mysql_native_password'
+    password='12345678',
+    database='destination_db',
 )
 cursor = conn.cursor()
 
@@ -81,7 +80,8 @@ def add_destination():
     new_destination = Destination(name, background, operating_hours, exciting_facts, latitude, longitude, 0, key_nearby_places, category_id)
     new_destination.save_to_db()
 
-def search_by_category(category_id):
+def search_by_category():
+    category_id = input("what are your pre")
     cursor.execute('SELECT * FROM Destination WHERE category_id = %s', (category_id,))
     destinations = cursor.fetchall()
     if destinations:
@@ -90,7 +90,8 @@ def search_by_category(category_id):
         return "No Destination Found"
     
 
-def search_by_query(query):
+def search_by_query():
+    query  = input("Search anything relating to your destination: ")
     search_query = f"%{query}%"
     cursor.execute('''
         SELECT * FROM Destination 
@@ -102,9 +103,9 @@ def search_by_query(query):
     ''', (search_query, search_query, search_query, search_query, search_query))
     destinations = cursor.fetchall()
     if destinations:
-            return destinations
+        print(destinations)
     else:
-        return None
+        return "Result not found"
     
 # Close the connection when done
 def close_connection():
