@@ -18,51 +18,6 @@ def get_recommended_places():
     # Select query for getting recommended places
     print("Getting recommended places...")
 
-def calculate_distance():
-    # Select query for calculating distance between destinations
-    print("Calculating distance between destinations...")
-
-def main_menu():
-    while True:
-        print("\n--- WELCOME TO TOURIST BUDDY ---")
-        print("1. Explore Available Destinations")
-        print("2. Search Destination Name")
-        print("3. Filter Destination By Category")
-        print("4. Add New Attractions")
-        print("5. Add New Category")
-        print("6. Get Available Categories")
-        print("7. Get Recommended Places")
-        print("8. Calculate Destination Distance")
-        print("9. Exit")
-
-        choice = input("Enter your choice: ")
-
-        if choice == '1':
-            explore_destinations()
-        elif choice == '2':
-            search_destination()
-        elif choice == '3':
-            filter_by_category()
-        elif choice == '4':
-            add_destination()
-        elif choice == '5':
-            add_category()
-        elif choice == '6':
-            get_categories()
-        elif choice == '7':
-            get_recommended_places()
-        elif choice == '8':
-            calculate_distance()
-        elif choice == '9':
-            print("Exiting program. Goodbye!")
-            break
-        else:
-            print("Invalid choice. Please try again.")
-
-if __name__ == '__main__':
-    main_menu()
-    close_category_conn()
-    close_destination_conn()
 # Function to calculate destination time
 def dest_time(start_time, add_hours, add_minutes, day_index):
     # Define constants
@@ -106,10 +61,59 @@ def dest_time(start_time, add_hours, add_minutes, day_index):
 
     return new_time
 
-# Example usage
-start_time = '2:00 PM'
-add_hours = 0
-add_minutes = 45
-day_index = 0
+def arrival_time():
+    start_time = input("Enter start time (HH:MM AM/PM): ")
+    add_hours = int(input("Enter duration hours: "))
+    add_minutes = int(input("Enter duration minutes: "))
+    day_index = int(input("Enter the day index (1-7): "))
 
-print(dest_time(start_time, add_hours, add_minutes, day_index))
+    dest_time(start_time, add_hours, add_minutes, day_index)
+
+def calculate_distance():
+    # Select query for calculating distance from current location
+    print("Calculating distance from current location...")
+
+def main_menu():
+    while True:
+        print("\n--- WELCOME TO TOURIST BUDDY ---")
+        print("1. Explore Available Destinations")
+        print("2. Search Destination Name")
+        print("3. Filter Destination By Category")
+        print("4. Add New Attractions")
+        print("5. Add New Category")
+        print("6. Get Available Categories")
+        print("7. Get Recommended Places")
+        print("8. Distance From Current Location")
+        print("9. Find Arrival Time")
+        print("10. Exit")
+
+        choice = input("Enter your choice: ")
+
+        if choice == '1':
+            explore_destinations()
+        elif choice == '2':
+            search_destination()
+        elif choice == '3':
+            filter_by_category()
+        elif choice == '4':
+            add_destination()
+        elif choice == '5':
+            add_category()
+        elif choice == '6':
+            get_categories()
+        elif choice == '7':
+            get_recommended_places()
+        elif choice == '8':
+            calculate_distance()
+        elif choice == '9':
+            arrival_time()
+        elif choice == '10':
+            print("Exiting program. Goodbye!")
+            break
+        else:
+            print("Invalid choice. Please try again.")
+
+if __name__ == '__main__':
+    main_menu()
+    close_category_conn()
+    close_destination_conn()
