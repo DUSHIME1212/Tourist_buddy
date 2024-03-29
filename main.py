@@ -29,8 +29,9 @@ def add_destination():
     new_destination.save_to_db()
 
 def add_category():
-    # Insert query for adding new category
-    print("Adding new category...")
+    name = input("Enter category name: ")
+    new_category = Category(name)
+    new_category.save_to_db()
 
 def get_categories():
     # Select query for getting available categories
