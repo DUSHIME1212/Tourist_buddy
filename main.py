@@ -137,3 +137,11 @@ def currency_conversion():
         print(f"{amount_to_convert} {from_currency} is equal to {converted_amount} {to_currency}")
     else:
         print("Conversion rate not available.")
+
+def convert_currency(amount, from_currency, to_currency, conversion_rates):
+    if (from_currency, to_currency) in conversion_rates:
+        rate = conversion_rates[(from_currency, to_currency)]
+        converted_amount = amount * rate
+        return converted_amount
+    else:
+        return None
