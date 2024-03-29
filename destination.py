@@ -143,4 +143,5 @@ def highly_recommended():
     query = "SELECT * FROM destinations WHERE rating = (SELECT MAX(rating) FROM destinations)"
     cursor.execute(query)
     # Fetch all the rows
+    result = cursor.fetchall()
 
