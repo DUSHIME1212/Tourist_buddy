@@ -126,3 +126,25 @@ if __name__ == '__main__':
     main_menu()
     close_category_conn()
     close_destination_conn()
+
+def currency_conversion():
+    conversion_rates = {
+        ('USD', 'EUR'): 0.89,
+        ('EUR', 'USD'): 1.12,
+        ('RWF', 'USD'): 0.00099,
+        ('USD', 'KES'): 111,
+        ('USD', 'UGX'): 4071,
+        ('KES', 'USD'): 0.009,
+        ('UGX', 'USD'): 0.00025,
+        ('USD', 'RWF'): 1015
+    }
+
+    amount_to_convert = float(input("Enter the amount to convert: "))
+    from_currency = input("Enter the current currency (e.g., USD, EUR, RWF, KES, UGX): ").upper()
+    to_currency = input("Enter the desired currency (e.g., USD, EUR, RWF, KES, UGX): ").upper()
+
+    converted_amount = convert_currency(amount_to_convert, from_currency, to_currency, conversion_rates)
+    if converted_amount is not None:
+        print(f"{amount_to_convert} {from_currency} is equal to {converted_amount} {to_currency}")
+    else:
+        print("Conversion rate not available.")
