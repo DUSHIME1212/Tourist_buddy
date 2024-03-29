@@ -127,7 +127,7 @@ def update_destination():
     longitude = location[1].strip()
 
     new_destination = Destination(name, background, operating_hours, exciting_facts, latitude, longitude, 0, key_nearby_places, category_id)
-    new_destination.save_to_db()
+    new_destination.update_destination_info()
 
 def convert_currency(amount, from_currency, to_currency, conversion_rates):
     if (from_currency, to_currency) in conversion_rates:
