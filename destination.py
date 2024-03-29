@@ -72,6 +72,11 @@ class Destination:
         new_destination = Destination(name, background, operating_hours, exciting_facts, latitude, longitude, 0, key_nearby_places, category_id)
         new_destination.save_to_db()
         
+    def add_category():
+        name = input("Enter category name: ")
+        new_category = Category(name)
+        new_category.save_to_db()
+
     def search_by_category(category_id):
         cursor.execute('SELECT * FROM Destination WHERE category_id = %s', (category_id,))
         destinations = cursor.fetchall()

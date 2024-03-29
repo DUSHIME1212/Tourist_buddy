@@ -11,10 +11,7 @@ def filter_by_category():
     # Select query for filtering destination by category
     print("Filtering destination by category...")
 
-def add_category():
-    name = input("Enter category name: ")
-    new_category = Category(name)
-    new_category.save_to_db()
+
 
 def get_categories():
     cursor.execute('SELECT COUNT(*) FROM Category')
