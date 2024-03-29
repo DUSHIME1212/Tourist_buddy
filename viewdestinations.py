@@ -3,10 +3,11 @@ import mysql.connector
 def explore_destinations():
     #connecting my database
     connection = mysql.connector.connect(
-        host = 'local host',
-        user = 'root',
-        password = 'Harerimana',
-        database = 'availdestination_db'
+        host='localhost',
+        user='root',
+        password='',
+        database='destinations_db',
+        auth_plugin='mysql_native_password'
     )
     cursor = connection.cursor()
 
