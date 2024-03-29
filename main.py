@@ -1,5 +1,5 @@
 from category import Category, close_connection as close_category_conn, add_category, get_categories
-from destination import Destination, close_connection as close_destination_conn, cursor, add_destination, update_destination,search_by_category,search_by_query
+from destination import Destination, close_connection as close_destination_conn, cursor, add_destination, update_destination,search_by_category, search_by_query, convert_currency
 from viewdestinations import explore_destinations
 
 def get_recommended_places():
