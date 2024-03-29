@@ -138,6 +138,16 @@ def update_destination():
     new_destination.update_destination_info()
 
 
+def highly_recommended():
+    # Execute the SQL query
+    query = "SELECT * FROM destinations WHERE rating = (SELECT MAX(rating) FROM destinations)"
+    cursor.execute(query)
+    
+    # Fetch all the rows
+    result = cursor.fetchall()
+    
+    # Print the result
+    for row in result:
+        print(row)
 
-
-
+        
