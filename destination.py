@@ -140,5 +140,6 @@ def update_destination():
 # Execute the SQL query
 def highly_recommended():
     query = "SELECT * FROM destinations WHERE rating = (SELECT MAX(rating) FROM destinations)"
+    cursor.execute(query)
 
 
