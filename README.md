@@ -41,7 +41,11 @@ In this feature, users will view the list of all available destinations that hav
 When the user does not get the destination, it tells them that it is not available. ![alt text](image-1.png)
 
 3. **Filter Destination By Category**: It filters all destinations by their categories.
+![alt text](image-2.png)
 
 when the category or the destination is not available, the user is told that it is unavailable.
+![alt text](image-3.png)
 
-4. **4. Rate a Destination**: Here the user get the option to rate the destination, from the experience he had.
+4. **Rate a Destination**: Here the user get the option to rate the destination, from the experience he had. After rating they are told "Thank you for your feedback!"
+![alt text](image-4.png) after rating
+![alt text](image-5.png) when they use the wrong number to rate they are told to use the correct rating.
