@@ -26,3 +26,12 @@ As the Virtual Tour Guide project evolves, it remains dedicated to empowering tr
 ![alt text](assets/menu.png)
 
 5. Select the desired option to explore the features of the Virtual Tour Guide.
+
+## Features
+
+1. **Explore Available Destinations**: Users can discover popular destinations, historical sites, and cultural landmarks around the world.
+
+In this feature, users will view the list of all available destinations that have been recorded in our application
+
+![alt text](assets/destination-list.png)
+
