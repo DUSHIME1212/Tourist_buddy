@@ -53,3 +53,5 @@ when the category or the destination is not available, the user is told that it 
 5. **Get Recommended Places**: This feature provides users with a list of recommended places based on their interests, budget, and time duration. It includes a **Destination List** feature that allows users to view all available destinations.
 
 6. **Add New Category**: This feature allows users to add new categories for their favorite places that are not included in the existing categories.
+
+7. **Get Available Categories**: This feature enables users to view the available categories of places to visit in our app.
