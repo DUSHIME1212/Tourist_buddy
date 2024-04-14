@@ -57,7 +57,10 @@ when the category or the destination is not available, the user is told that it 
 7. **Get Available Categories**: This feature enables users to view the available categories of places to visit in our app.
 
 8. **Add destination**: This feature allows the user to add his favorite destination to the application.
+![alt text](add_destination.png)
 
 9. **Edit existing attraction**: This feature allows the user to add a new attraction to an existing destination.
+![alt text](update_destination.png)
 
-10. **Distance from current location**: This feature allows the user to know what is the distance between his current location and the final location. 
+10. **Distance from current location**: This feature allows the user to know what is the distance between his current location and the final location.
+![alt text](current_location.png)
