@@ -54,5 +54,6 @@ when the category or the destination is not available, the user is told that it 
 !["higly rated places"](./assets/higly-rated-places.jpg)
 
 6. **Add New Category**: This feature allows users to add new categories for their favorite places that are not included in the existing categories.
+!["add category"](./assets/add-cat.jpg)
 
 7. **Get Available Categories**: This feature enables users to view the available categories of places to visit in our app.
