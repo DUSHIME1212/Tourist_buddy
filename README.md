@@ -51,6 +51,7 @@ when the category or the destination is not available, the user is told that it 
 ![alt text](image-5.png) when they use the wrong number to rate they are told to use the correct rating.
 
 5. **Get Recommended Places**: This feature provides users with a list of recommended places based on their highly-rated places.
+!["higly rated places"](./assets/higly-rated-places.jpg)
 
 6. **Add New Category**: This feature allows users to add new categories for their favorite places that are not included in the existing categories.
 
