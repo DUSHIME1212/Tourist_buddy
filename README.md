@@ -35,3 +35,4 @@ In this feature, users will view the list of all available destinations that hav
 
 ![alt text](assets/destination-list.png)
 
+2. **Search Destination Name**: It allows the user to search the destination by name, from the list of available destinations.
