@@ -57,6 +57,31 @@ when the category or the destination is not available, the user is told that it 
 !["add category"](./assets/add-cat.jpg)
 
 7. **Get Available Categories**: This feature enables users to view the available categories of places to visit in our app.
+<<<<<<< HEAD
 !["get category"](./assets/get-cat.jpg)
+
+
+=======
+<<<<<<< HEAD
+
+8. **Add destination**: This feature allows the user to add his favorite destination to the application.
+![alt text](add_destination.png)
+
+9. **Edit existing attraction**: This feature allows the user to add a new attraction to an existing destination.
+![alt text](update_destination.png)
+
+10. **Distance from current location**: This feature allows the user to know what is the distance between his current location and the final location.
+![alt text](current_location.png)
+=======
+!["get category"](./assets/get-cat.jpg)
+
+11. ** Find Arrival Time**: This feature provides estimated arrival times for various destinations.
+!["arrival_time](arrival_time.png)
+
+12. ** Currency Conversion**: This feature allows users to convert between different currencies.
+!["currency_conversion"](currency_conversion.png)
+
+13. **Exit**: This feature allows users to quickly close the application ensuring their data is saved.
+!["
 
 
