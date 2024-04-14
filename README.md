@@ -43,3 +43,4 @@ When the user does not get the destination, it tells them that it is not availab
 
 when the category or the destination is not available, the user is told that it is unavailable.
 
+4. **4. Rate a Destination**: Here the user get the option to rate the destination, from the experience he had.
