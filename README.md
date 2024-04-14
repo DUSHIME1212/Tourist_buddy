@@ -36,8 +36,9 @@ In this feature, users will view the list of all available destinations that hav
 ![alt text](assets/destination-list.png)
 
 2. **Search Destination Name**: It allows the user to search the destination by name, from the list of available destinations.
+![alt text](image.png)
 
-When the user does not get the destination, it tells them that it is not available.
+When the user does not get the destination, it tells them that it is not available. ![alt text](image-1.png)
 
 3. **Filter Destination By Category**: It filters all destinations by their categories.
 
