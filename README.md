@@ -57,3 +57,4 @@ when the category or the destination is not available, the user is told that it 
 !["add category"](./assets/add-cat.jpg)
 
 7. **Get Available Categories**: This feature enables users to view the available categories of places to visit in our app.
+!["get category"](./assets/get-cat.jpg)
