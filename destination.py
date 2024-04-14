@@ -132,7 +132,7 @@ def search_by_query():
     if destinations:
         print(destinations)
     else:
-        return "Result not found"
+        print("Result not found")
     
 # Close the connection when done
 def close_connection():

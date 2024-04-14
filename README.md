@@ -49,3 +49,5 @@ when the category or the destination is not available, the user is told that it 
 4. **Rate a Destination**: Here the user get the option to rate the destination, from the experience he had. After rating they are told "Thank you for your feedback!"
 ![alt text](image-4.png) after rating
 ![alt text](image-5.png) when they use the wrong number to rate they are told to use the correct rating.
+
+5. **Get Recommended Places**: This feature provides users with a list of recommended places based on their interests, budget, and time duration. It includes a **Destination List** feature that allows users to view all available destinations.
