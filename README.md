@@ -36,25 +36,28 @@ In this feature, users will view the list of all available destinations that hav
 ![alt text](assets/destination-list.png)
 
 2. **Search Destination Name**: It allows the user to search the destination by name, from the list of available destinations.
-![alt text](image.png)
+![alt text](assets/search_by_name_success.png)
 
-When the user does not get the destination, it tells them that it is not available. ![alt text](image-1.png)
+When the user does not get the destination, it tells them that it is not available. ![alt text](assets/search_by_name_unknown.png)
 
 3. **Filter Destination By Category**: It filters all destinations by their categories.
-![alt text](image-2.png)
+![alt text](assets/filter_category_success.png)
 
 when the category or the destination is not available, the user is told that it is unavailable.
-![alt text](image-3.png)
+![alt text](assets/filter_category_unavailable.png)
 
 4. **Rate a Destination**: Here the user get the option to rate the destination, from the experience he had. After rating they are told "Thank you for your feedback!"
-![alt text](image-4.png) after rating
-![alt text](image-5.png) when they use the wrong number to rate they are told to use the correct rating.
+![alt text](assets/rate_destination_success.png) after rating
+![alt text](assets/rate_destination_unknown.png) when they want to rate a destination which is not available
 
 5. **Get Recommended Places**: This feature provides users with a list of recommended places based on their highly-rated places.
+!["higly rated places"](./assets/higly-rated-places.jpg)
 
 6. **Add New Category**: This feature allows users to add new categories for their favorite places that are not included in the existing categories.
+!["add category"](./assets/add-cat.jpg)
 
 7. **Get Available Categories**: This feature enables users to view the available categories of places to visit in our app.
+<<<<<<< HEAD
 
 8. **Add destination**: This feature allows the user to add his favorite destination to the application.
 ![alt text](add_destination.png)
@@ -64,3 +67,6 @@ when the category or the destination is not available, the user is told that it 
 
 10. **Distance from current location**: This feature allows the user to know what is the distance between his current location and the final location.
 ![alt text](current_location.png)
+=======
+!["get category"](./assets/get-cat.jpg)
+>>>>>>> ac88735bf38be3f801a75d20e160a8b57a254de6
