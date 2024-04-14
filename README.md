@@ -56,4 +56,6 @@ when the category or the destination is not available, the user is told that it 
 
 7. **Get Available Categories**: This feature enables users to view the available categories of places to visit in our app.
 
-8.**Add destination**: This feature allows the user to add his favorite destination to the application. 
+8. **Add destination**: This feature allows the user to add his favorite destination to the application.
+
+9. **Edit existing attraction**: This feature allows the user to add a new attraction to an existing destination.
