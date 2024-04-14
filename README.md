@@ -10,3 +10,19 @@ Notably, this project goes beyond tourism by creating opportunities for job crea
 
 As the Virtual Tour Guide project evolves, it remains dedicated to empowering travelers and supporting local economies. Join us in our mission to explore the world, promote sustainable tourism, and create meaningful opportunities for job seekers and entrepreneurs.
 
+## How To Run The App
+
+1. Clone the repository to your local machine.
+
+2. Open the terminal and navigate to the project directory.
+
+3. Run the following command to install the required dependencies:
+
+```bash
+/bin/python3 /directory_of_the_project/main.py
+```
+
+4. The App will display to the Menu of the App:
+![alt text](assets/menu.png)
+
+5. Select the desired option to explore the features of the Virtual Tour Guide.
