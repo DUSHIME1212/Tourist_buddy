@@ -55,3 +55,5 @@ when the category or the destination is not available, the user is told that it 
 6. **Add New Category**: This feature allows users to add new categories for their favorite places that are not included in the existing categories.
 
 7. **Get Available Categories**: This feature enables users to view the available categories of places to visit in our app.
+
+8.**Add destination**: This feature allows the user to add his favorite destination to the application. 
