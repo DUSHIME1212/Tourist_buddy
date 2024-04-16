@@ -1,7 +1,12 @@
 import math
+import os
+from colorama import init, Fore, Style
 from category import close_connection as close_category_conn, add_category, get_categories
 from destination import close_connection as close_destination_conn, cursor, add_destination, update_destination,search_by_category, search_by_query, highly_recommended, rate_destination
 from viewdestinations import explore_destinations
+
+# Initialize colorama
+init(autoreset=True)
 
 # Function to calculate destination time
 def dest_time(start_time, add_hours, add_minutes, day_index):
@@ -47,13 +52,19 @@ def dest_time(start_time, add_hours, add_minutes, day_index):
     return new_time
 
 def arrival_time():
-    start_time = input("Enter start time (HH:MM AM/PM): ")
-    add_hours = int(input("Enter duration hours: "))
-    add_minutes = int(input("Enter duration minutes: "))
-    day_index = int(input("Enter the day index (1-7): "))
+    os.system('cls' if os.name == 'nt' else 'clear')
+
+    print('\n' + ' ' * 10 + '=' * 100)
+    print(Fore.BLUE + f"ARRIVAL TIME".center(120) + Style.RESET_ALL)
+    print(' ' * 10 + '=' * 100)
+
+    start_time = input('\n' + ' ' * 10 + "Enter start time (HH:MM AM/PM): ".center(20))
+    add_hours = int(input('\n' + ' ' * 10 + "Enter duration hours: ").center(20))
+    add_minutes = int(input('\n' + ' ' * 10 + "Enter duration minutes: ").center(20))
+    day_index = int(input('\n' + ' ' * 10 + "Enter the day index (1-7): "))
 
     result = dest_time(start_time, add_hours, add_minutes, day_index)
-    print(f"Arrival time: {result}")
+    print('\n' + Fore.GREEN + f"Arrival Time: {result}".center(120) + Style.RESET_ALL)
 
 def calculate_distance(lat1, lon1, lat2, lon2):
     # Convert latitude and longitude from degrees to radians
@@ -76,41 +87,54 @@ def calculate_distance(lat1, lon1, lat2, lon2):
     return distance_km
 
 def distance_from_origin():
-    destination_name = input("Enter your destination: ")
-    user_lat = float(input("Enter your current latitude: "))
-    user_lon = float(input("Enter your current longitude: "))
+
+    os.system('cls' if os.name == 'nt' else 'clear')
+
+    print('\n' + ' ' * 10 + '=' * 100)
+    print(Fore.BLUE + f"DISTANCE FROM ORIGIN".center(120) + Style.RESET_ALL)
+    print(' ' * 10 + '=' * 100)
+
+    destination_name = input('\n' + ' ' * 10 + "Enter your destination: ".center(20))
+    user_lat = float(input('\n' + ' ' * 10 + "Enter your current latitude: ".center(20)))
+    user_lon = float(input('\n' + ' ' * 10 + "Enter your current longitude: ".center(20)))
 
     cursor.execute('SELECT latitude, longitude FROM Destination WHERE name = %s', (destination_name,))
     destination_coords = cursor.fetchone()
     if destination_coords is None:
-        print("Destination not found.")
+        print('\n' + Fore.LIGHTRED_EX + f"{'DESTINATION NOT FOUND'}".center(120) + Style.RESET_ALL)
         return
     else:
         dest_lat, dest_lon = destination_coords
         distance = calculate_distance(user_lat, user_lon, dest_lat, dest_lon)
-        print(f"Distance to destination: {distance} kilometers")
+        print('\n' + Fore.GREEN + f"Distance to destination: {distance} kilometers".center(120) + Style.RESET_ALL)
 
 def currency_conversion():
+    os.system('cls' if os.name == 'nt' else 'clear')
+
+    print('\n' + ' ' * 10 + '=' * 100)
+    print(Fore.BLUE + f"CURRENCY CONVERSION".center(120) + Style.RESET_ALL)
+    print(' ' * 10 + '=' * 100)
+
     conversion_rates = {
-        ('USD', 'EUR'): 0.89,
-        ('EUR', 'USD'): 1.12,
-        ('RWF', 'USD'): 0.00099,
-        ('USD', 'KES'): 111,
-        ('USD', 'UGX'): 4071,
-        ('KES', 'USD'): 0.009,
-        ('UGX', 'USD'): 0.00025,
-        ('USD', 'RWF'): 1015
+        ('USD', 'EUR'): 0.94,
+        ('EUR', 'USD'): 1.06,
+        ('RWF', 'USD'): 0.00077,
+        ('USD', 'RWF'): 1294,
+        ('USD', 'KES'): 132,
+        ('KES', 'USD'): 0.0076,
+        ('USD', 'UGX'): 3833,
+        ('UGX', 'USD'): 0.00026,
     }
 
-    amount_to_convert = float(input("Enter the amount to convert: "))
-    from_currency = input("Enter the current currency (e.g., USD, EUR, RWF, KES, UGX): ").upper()
-    to_currency = input("Enter the desired currency (e.g., USD, EUR, RWF, KES, UGX): ").upper()
+    amount_to_convert = float(input('\n' + ' ' * 10 + "Enter the amount to convert: ".center(20)))
+    from_currency = input('\n' + ' ' * 10 + "Enter the current currency (e.g., USD, EUR, RWF, KES, UGX): ".center(20)).upper()
+    to_currency = input('\n' + ' ' * 10 + "Enter the desired currency (e.g., USD, EUR, RWF, KES, UGX): ".center(20)).upper()
 
     converted_amount = convert_currency(amount_to_convert, from_currency, to_currency, conversion_rates)
     if converted_amount is not None:
-        print(f"{amount_to_convert} {from_currency} is equal to {converted_amount} {to_currency}")
+        print('\n' + Fore.GREEN + f"{amount_to_convert} {from_currency} is equal to {converted_amount} {to_currency}".center(120) + Style.RESET_ALL)
     else:
-        print("Conversion rate not available.")
+        print('\n' + Fore.LIGHTRED_EX + f"{'Conversion rate not available.'}".center(120) + Style.RESET_ALL)
 
 def convert_currency(amount, from_currency, to_currency, conversion_rates):
     if (from_currency, to_currency) in conversion_rates:
@@ -122,22 +146,25 @@ def convert_currency(amount, from_currency, to_currency, conversion_rates):
 
 def main_menu():
     while True:
-        print("\n--- WELCOME TO TOURIST BUDDY ---")
-        print("1. Explore Available Destinations")
-        print("2. Search Destination Name")
-        print("3. Filter Destination By Category")
-        print("4. Rate a Destination")
-        print("5. Get Recommended Places")
-        print("6. Add New Category")
-        print("7. Get Available Categories")
-        print("8. Add New Attractions")
-        print("9. Edit existing attraction")
-        print("10. Distance From Current Location")
-        print("11. Find Arrival Time")
-        print("12. Currency Conversion")
-        print("13. Exit")
-
-        choice = input("Enter your choice: ")
+        print("\n" * 3)  # Add vertical spacing to center the menu vertically
+        print(" " * 45 + Fore.BLUE + "=========================== WELCOME TO TOURIST BUDDY ===========================" + Style.RESET_ALL)
+        print("\n" * 1)
+        print(" " * 45 + "1. Explore Available Destinations")
+        print(" " * 45 + "2. Search Destination by Name")
+        print(" " * 45 + "3. Filter Destinations by Category")
+        print(" " * 45 + "4. Rate a Destination")
+        print(" " * 45 + "5. Get Recommended Places")
+        print(" " * 45 + "6. Add New Category")
+        print(" " * 45 + "7. Get Available Categories")
+        print(" " * 45 + "8. Add New Attractions")
+        print(" " * 45 + "9. Edit Existing Attraction")
+        print(" " * 45 + "10. Distance from Current Location")
+        print(" " * 45 + "11. Find Arrival Time")
+        print(" " * 45 + "12. Currency Conversion")
+        print(" " * 45 + "13. Exit")
+        print("\n" * 1)
+        
+        choice = input(" " * 45 + "Enter your choice: ")
 
         if choice == '1':
             explore_destinations()
@@ -164,10 +191,10 @@ def main_menu():
         elif choice == '12':
             currency_conversion()
         elif choice == '13':
-            print("Exiting program. Goodbye!")
+            print('\n' + Fore.CYAN + f"{'THANK YOU FOR USING TOURISTY BUDDY. GOODBYE!'}".center(115) + Style.RESET_ALL)
             break
         else:
-            print("Unknown option. Please try again with a different.")
+            print('\n' + Fore.LIGHTRED_EX + f"{'Unknown option. Please try again with a different option.'}".center(120) + Style.RESET_ALL)
 
 if __name__ == '__main__':
     main_menu()
