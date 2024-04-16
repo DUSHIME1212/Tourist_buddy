@@ -63,38 +63,38 @@ As the Virtual Tour Guide project evolves, it remains dedicated to empowering tr
 
 5. **Get Recommended Places**: This feature provides users with a list of recommended places based on their highly-rated places.
     
-    !["higly rated places"](assets/higly-rated-places.jpg)
+    !["higly rated places"](assets/highly_rated_places.png)
 
 6. **Add New Category**: This feature allows users to add new categories for their favorite places that are not included in the existing categories.
     
-    !["add category"](assets/add-cat.jpg)
+    !["add category"](assets/add-cat.png)
 
 7. **Get Available Categories**: This feature enables users to view the available categories of places to visit in our app.
     
-    !["get category"](assets/get-cat.jpg)
+    !["get category"](assets/get-cat.png)
 
 8. **Add destination**: This feature allows the user to add his favorite destination to the application.
     
-    ![alt text](assets/add_destination.jpg)
+    ![alt text](assets/add_destination.png)
 
 9. **Edit existing attraction**: This feature allows the user to add a new attraction to an existing destination.
     
-    ![alt text](assets/update_destination.jpg)
+    ![alt text](assets/update_destination.png)
 
 10. **Distance from current location**: This feature allows the user to know what is the distance between his current location and the final location.
     
-    ![alt text](assets/current_location.jpg)
+    ![alt text](assets/current_location.png)
 
 11. **Find Arrival Time**: This feature provides estimated arrival times for various destinations.
     
-    !["arrival_time](assets/arrival_time.jpg)
+    !["arrival_time](assets/arrival_time.png)
 
 12. **Currency Conversion**: This feature allows users to convert between different currencies.
     
-    !["currency_conversion"](assets/currency_conversion.jpg)
+    !["currency_conversion"](assets/currency_conversion.png)
 
 13. **Exit**: This feature allows users to quickly close the application ensuring their data is saved.
     
-    !["exit program"](assets/exit_program.jpg)
+    !["exit program"](assets/exit_program.png)
 
 

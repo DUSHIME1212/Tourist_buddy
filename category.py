@@ -1,3 +1,5 @@
+import os
+from colorama import Fore, Style
 import mysql.connector
 
 # Connect to MySQL database
@@ -28,23 +30,34 @@ class Category:
         conn.commit()
 
 def add_category():
-    name = input("Enter category name: ")
+    os.system('cls' if os.name == 'nt' else 'clear')
+
+    print('\n' + ' ' * 10 + '=' * 100)
+    print(Fore.BLUE + f"ADD CATEGORY".center(120) + Style.RESET_ALL)
+    print(' ' * 10 + '=' * 100)
+    
+    name = input('\n' + ' ' * 10 + "Enter category name: ".center(20))
     new_category = Category(name)
     new_category.save_to_db()
 
 def get_categories():
+    os.system('cls' if os.name == 'nt' else 'clear')
+
     cursor.execute('SELECT COUNT(*) FROM Category')
     num_categories = cursor.fetchone()[0]
 
     if num_categories == 0:
-        print("There are no categories available. Please consider adding some.")
+        print('\n' + Fore.LIGHTRED_EX + f"{'There are no categories available. Please consider adding some.'}".center(120) + Style.RESET_ALL)
     else:
         cursor.execute('SELECT * FROM Category')
         categories = cursor.fetchall()
-        print("Available Categories:")
+        
+        print('\n' + ' ' * 10 + '=' * 100)
+        print(Fore.BLUE + f"AVAILABLE CATEGORIES".center(120) + Style.RESET_ALL+ '\n')
+
         for cat in categories:
-            print(cat)
-                
+            print(' ' * 50 + f"Category {cat[0]}. {cat[1]}")
+
 # Close the connection when done
 def close_connection():
     conn.close()
